@@ -9,6 +9,7 @@ import com.goit.eugene.module19_hw.entity.Note;
 public class NoteMapper {
     public static Note convertToNote(RequestNoteDTO request){
         Note note = new Note();
+        note.setId(request.getId());
         note.setTitle(request.getTitle());
         note.setContent(request.getContent());
         return note;
