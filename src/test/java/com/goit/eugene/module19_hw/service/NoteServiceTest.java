@@ -28,7 +28,9 @@ class NoteServiceTest {
         //GIVEN
         RequestNoteDTO request = createRequestNoteDTO();
         ResponseNoteDTO.Status status = ResponseNoteDTO.Status.ok;
+
         Note note = NoteMapper.convertToNote(request);
+
         ResponseNoteDTO expectedResponse = ResponseNoteDTO.getResponse(status, 1);
 
         //WHEN
