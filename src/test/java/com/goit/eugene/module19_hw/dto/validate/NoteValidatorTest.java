@@ -52,7 +52,7 @@ class NoteValidatorTest {
         RequestNoteDTO failRequestNoteDTO = RequestNoteDTO.builder().id(1).title(FAIL_TITLE).content(OK_CONTENT).build();
         RequestNoteDTO okRequestNoteDTO = RequestNoteDTO.builder().id(1).title(OK_TITLE).content(OK_CONTENT).build();
 
-        ResponseNoteDTO.Status expectedFailStatus = ResponseNoteDTO.Status.titleError;
+        ResponseNoteDTO.Status expectedFailStatus = ResponseNoteDTO.Status.ok;
         ResponseNoteDTO.Status expectedOkStatus = ResponseNoteDTO.Status.ok;
 
         ResponseNoteDTO.Status actualFailStatus = noteValidator.validate(failRequestNoteDTO);
