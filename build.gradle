@@ -1,5 +1,6 @@
 plugins {
 	id 'java'
+	id 'jacoco'
 	id 'org.springframework.boot' version '3.2.0'
 	id 'io.spring.dependency-management' version '1.1.4'
 }
@@ -28,6 +29,17 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('test') {
+//tasks.named('test') {
+//	useJUnitPlatform()
+//}
+
+test {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport // report is always generated after tests run
+	dependsOn 'cleanTest'
+
+	// Show test results.
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
 }
